@@ -14,7 +14,14 @@
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE DeriveFunctor #-}
 {-# LANGUAGE CPP #-}
-module Data.Reflection.Extras where
+module Data.Reflection.Extras 
+   ( using
+   , usingT
+   , reifyInstance
+   , with
+   , Lift
+   , ReifiableConstraint (..)
+   ) where
 import Data.Constraint
 import Data.Constraint.Unsafe
 import Data.Monoid
@@ -67,6 +74,11 @@ reifyInstance = reify
 asProxyOf :: f s -> Proxy s -> f s
 asProxyOf a _ = a
 
+-- | Choose a dictionary for a local type class instance.
+--   
+--   >>> using (Monoid (+) 0) $ mempty <> 10 <> 12
+--   > 12
+--   
 using :: forall p a. ReifiableConstraint p => Def p a -> (p a => a) -> a
 using d m = reify d $ \(_ :: Proxy s) ->
   let replaceProof :: Reifies s (Def p a) :- p a
@@ -81,6 +93,7 @@ usingT d m = reify d $ \(_ :: Proxy s) ->
         where proof = unsafeCoerceConstraint :: p (Lift p s a) :- p a
   in m \\ replaceProof
 
+{-
 -- ClassProxy
 data ClassProxy (p :: * -> Constraint) = ClassProxy
 
@@ -95,7 +108,7 @@ ord = ClassProxy
 
 monoid :: ClassProxy Monoid
 monoid = ClassProxy
-
+-}
 --------------------------------------------------------------------------------
 -- Instances
 
