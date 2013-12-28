@@ -4,11 +4,17 @@
 name:                reflection-extras
 version:             0.1.0.0
 synopsis:            Utilities for the reflection package
--- description:         
+description: 
+This package is meant to implement the constraint machinary for the 
+@reflection@ package. It has been primarly ripped from the Constraint example
+of the @reflection@ package with some extension. The implementation is also
+influenced by Austin Seipp's article on the @reflection@ package: 
+https://www.fpcomplete.com/user/thoughtpolice/using-reflection
+
 homepage:            http://github.com/jfischoff/reflection-extras
 license:             BSD3
 license-file:        LICENSE
-author:              Jonathan Fischoff
+author:              Jonathan Fischoff, Edward Kmett, Austin Seipp
 maintainer:          jonathangfischoff@gmail.com
 -- copyright:           
 category:            Data
