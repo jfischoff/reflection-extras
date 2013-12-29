@@ -21,6 +21,7 @@ module Data.Reflection.Extras
    , with
    , Lift
    , ReifiableConstraint (..)
+   , Reifies (..)
    , Def (..)
    , Show (..)
    , Read (..)
