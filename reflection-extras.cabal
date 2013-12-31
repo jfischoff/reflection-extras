@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                reflection-extras
-version:             0.1.0.2
+version:             0.1.1.0
 synopsis:            Utilities for the reflection package
 description: 
  This package is meant to implement the constraint machinary for the 

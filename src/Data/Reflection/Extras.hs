@@ -23,17 +23,8 @@ module Data.Reflection.Extras
    , ReifiableConstraint (..)
    , Reifies (..)
    , Def (..)
-   , Show (..)
-   , Read (..)
-   , Ord (..)
-   , Eq (..)
    , FromJSON (..)
    , ToJSON (..)
-   , Enum (..)
-   , Bounded (..)
-   , Num (..)
-   , Real (..)
-   , Monoid (..)
    ) where 
 import Data.Constraint
 import Data.Constraint.Unsafe
